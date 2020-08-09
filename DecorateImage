@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+
+
+im = cv2.imread('imagename.format', cv2.IMREAD_COLOR) 
+
+        # shapes
+cv2.line(im, (60,150), (800,150), (243,100,80), 15) #line
+cv2.circle(im, (150,1400), 30, (36,162,274), -1)    # circle
+                                  # -1 fills circle with color   
+font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(im, 'Anythong ! ! ! !', (50,130), font, 3, (200,25,255), 10, cv2.LINE_AA)
+# (variable name, text, starting position, font variable, size, color,thickness of letters,anti aliasing)
+
+img = cv2.resize(im, (450, 600))
+
+cv2.imshow('image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
