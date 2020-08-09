@@ -1,2 +1,2 @@
 # OpenCV
-Basic code to show an image
+Basic code to play with OpenCV
