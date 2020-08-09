@@ -1,0 +1,23 @@
+import cv2
+import numpy as np
+
+
+cap = cv2.VideoCapture(0) #if you have only one camera attached put 0 in ( ).Put 1 for second camera(if you have)
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640,480)) #save Video
+
+while True :
+    ret, frame = cap.read()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    out.write(frame) #saves original video
+    
+    cv2.imshow('frame',frame) # output of original video
+    cv2.imshow('gray', gray)  # output of black greyed video
+
+    if cv2.waitKey(1) & 0xFF == ord('q') :  #on pressing letter q window is destroyed, you can change it 
+        break
+
+cap.release() #To show video
+out.release() #To save output
+cv2.destroyAllWindows() #To destroy video frame
